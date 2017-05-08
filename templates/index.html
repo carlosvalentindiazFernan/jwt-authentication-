@@ -1,0 +1,51 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo</title>
+
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" e>
+    <style>
+        #uno{
+            background-color: #ff6ea5;
+            widows:400px;
+            height:400px;
+        }
+
+        #dos{
+            widows:400px;
+            height:400px;
+            background-color: #4cae4c;
+        }
+    </style>
+
+<body>
+
+    {% if form  != none %}
+        <form method="post">
+            {% csrf_token %}
+
+            {{ form.as_p }}
+
+            <button type="submit" class="btn btn-default" aria-label="Left Align">
+              <span class="glyphicon glyphicon-align-left" aria-hidden="true">Enviar</span>
+            </button>
+
+        </form>
+    {% endif %}
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script>
+      function position(event) {
+          var x = event.clientX;
+          var y = event.clientY;
+          var mousePositions = document.getElementById('mousePositions');
+          mousePositions.innerHTML = 'X coords: ' + x + ', Y coords: ' + y;
+      }
+    </script>
+</body>
+</html>
